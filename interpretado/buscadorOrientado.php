@@ -7,18 +7,28 @@ use Symfony\Component\DomCrawler\Crawler;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-
+//Retornar a [página do filme Space Jam]
 $tituloPageObject = new TituloPageObject();
+var_dump($tituloPageObject->getHtml());
+//var_dump($tituloPageObject->getHtmlSiteMapa()); // Html SiteMapa
 
-//var_dump($tituloPageObject->getHtml());
+//Extrair a URL do ["Site Map"]
+//$tituloParser = new TituloParser($tituloPageObject->getHtml());
+
+$tituloParser = $tituloPageObject->getParser2();
+
+echo 'Url da página SiteMapa ' . $tituloParser->getUrlSiteMapa() . PHP_EOL ;
+//echo 'Titulo da página ' . $tituloPageObject->getTitulo() . PHP_EOL ; // Titulo da página principal
+
+
+// Html página SiteMapa
+//$tituloPageObject = new TituloPageObject();
 //var_dump($tituloPageObject->getHtmlSiteMapa());
-//var_dump($tituloPageObject->getHtmlSiteMapa());
 
-$tituloPageObject = new TituloParser($tituloPageObject->getHtml());
-//$tituloPageObject = new TituloParser($tituloPageObject->getHtmlSiteMapa());
 
-//echo $tituloPageObject->getTitulo() . PHP_EOL ;
-echo 'Url da página SiteMapa ' . $tituloPageObject->getUrlSiteMapa() . PHP_EOL ;
+//Retonar a tabela do ["Site Map"]
+//$tituloPageObject = new TituloPageObject();
+$objeto = $tituloPageObject->getParser()->getIterator()->current();
 
-$tituloPageObject = new TituloPageObject();
-var_dump($tituloPageObject->getHtmlSiteMapa());
+var_dump($objeto->descricao);
+var_dump($objeto->link);

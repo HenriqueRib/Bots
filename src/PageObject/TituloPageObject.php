@@ -2,6 +2,8 @@
 
 namespace Forseti\Bot\SpaceJam\PageObject;
 
+use Forseti\Bot\SpaceJam\Parser\TituloParser;
+
 class TituloPageObject extends AbstractPageObject
 {
 
@@ -26,4 +28,16 @@ class TituloPageObject extends AbstractPageObject
         $tituloPageObject = $this->getRespostaSiteMapa()->getBody()->getContents();
         return $tituloPageObject;
     }
+
+    public function getParser()
+    {
+        return new TituloParser($this->getHtmlSiteMapa());
+    }
+
+    public function getParser2()
+    {
+        return new TituloParser($this->getHtml());
+    }
+
 }
+

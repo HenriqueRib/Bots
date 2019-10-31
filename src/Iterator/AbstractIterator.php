@@ -2,8 +2,19 @@
 
 namespace Forseti\Bot\SpaceJam\Iterator;
 
-class AbstractIrerator implements \Contable, \Iterator
+class AbstractIterator implements \Countable, \Iterator
 {
+    protected $iterator;
+
+    /**
+     * AbstractIterator constructor.
+     * @param $crawler
+     */
+
+    public function __construct($crawler)
+    {
+        $this->iterator = $crawler->getIterator();
+    }
 
     /**
      * Return the current element
@@ -24,7 +35,7 @@ class AbstractIrerator implements \Contable, \Iterator
      */
     public function next()
     {
-        // TODO: Implement next() method.
+        $this->iterator->next();
     }
 
     /**
@@ -35,7 +46,7 @@ class AbstractIrerator implements \Contable, \Iterator
      */
     public function key()
     {
-        // TODO: Implement key() method.
+        return $this->iterator->key();
     }
 
     /**
@@ -47,7 +58,7 @@ class AbstractIrerator implements \Contable, \Iterator
      */
     public function valid()
     {
-        // TODO: Implement valid() method.
+        return $this->iterator->valid();
     }
 
     /**
@@ -58,6 +69,21 @@ class AbstractIrerator implements \Contable, \Iterator
      */
     public function rewind()
     {
-        // TODO: Implement rewind() method.
+        $this->iterator->rewind();
     }
+
+    /**
+     * Count elements of an object
+     * @link https://php.net/manual/en/countable.count.php
+     * @return int The custom count as an integer.
+     * </p>
+     * <p>
+     * The return value is cast to an integer.
+     * @since 5.1.0
+     */
+    public function count()
+    {
+        return $this->iterator->count();
+    }
+
 }
