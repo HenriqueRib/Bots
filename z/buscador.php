@@ -10,11 +10,13 @@ $resposta = $client->request('GET','https://www.spacejam.com/archive/spacejam/mo
 
 $html = $resposta->getBody()->getContents();
 
-var_dump($html);
+//var_dump($html);
 
 $crawler = new Crawler();
 $crawler->addHtmlContent($html);
 
 $titulo = $crawler->filter('title');
+$url = $crawler->filterXPath('//html/body/center/table[2]/tr[5]/td[3]/a')->attr('href');
 
 echo $titulo->text() . PHP_EOL ;
+echo $url . PHP_EOL;

@@ -13,7 +13,7 @@ var_dump($tituloPageObject->getHtml());
 //var_dump($tituloPageObject->getHtmlSiteMapa()); // Html SiteMapa
 
 //Extrair a URL do ["Site Map"]
-//$tituloParser = new TituloParser($tituloPageObject->getHtml());
+$tituloParser = new TituloParser($tituloPageObject->getHtml());
 
 $tituloParser = $tituloPageObject->getParser2();
 
@@ -31,4 +31,4 @@ echo 'Url da página SiteMapa ' . $tituloParser->getUrlSiteMapa() . PHP_EOL ;
 $objeto = $tituloPageObject->getParser()->getIterator()->current();
 
 var_dump($objeto->descricao);
-var_dump($objeto->link);
+var_dump($objeto->link); 
