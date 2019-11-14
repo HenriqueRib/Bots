@@ -14,9 +14,9 @@ class TituloParser extends AbstractParser
 
     public function getUrlSiteMapa()
     {
-        $tituloParser = $this->crawler->filterXPath('//html/body/center/table[2]/tr[5]/td[3]/a')->attr('href');
+        return $this->crawler->filterXPath('//html/body/center/table[2]/tr[5]/td[3]/a')->attr('href');
 
-        return $tituloParser;///html/body/center/table[2]/tbody/tr[5]/td[3]/a
+       // return $tituloParser;///html/body/center/table[2]/tbody/tr[5]/td[3]/a
     }
 
     public function getIterator()

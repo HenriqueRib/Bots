@@ -11,7 +11,8 @@ class TituloIterator extends AbstractIterator
 
 //        var_dump($node);
 
-        $obj->descricao = $node->getElementsByTagName('td')->item(1)->textContent;
+        $obj->descricao = $node->getElementsByTagName('td')->item(4)->textContent;
+
         $obj->link = $node->getElementsByTagName('td')->item(2)->textContent;//
 
         return $obj;
